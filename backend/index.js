@@ -10,8 +10,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/contact', (req, res) => {
-  const { Name, Email, Message } = req.body;
-  console.log('Contact form received:', Name, Email, Message);
+  const { name, email, message } = req.body; // lowercase keys
+  console.log('Contact form received:', name, email, message);
   res.json({ message: 'Thank you for contacting us!' });
 });
 

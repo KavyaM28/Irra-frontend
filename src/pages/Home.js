@@ -8,7 +8,12 @@ function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero" style={{ backgroundImage: "url('/images/hero.jpg')" }}>
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/hero.jpg)`
+        }}
+      >
         <div className="hero-content">
           <div className="welcome-flash">Welcome to Irra Spaces</div>
           <h1>Live Where You Love - Design Your Space With Us.</h1>
@@ -21,17 +26,17 @@ function Home() {
         <h2>Our Services</h2>
         <div className="grid">
           <div className="card">
-            <img src="/images/interior-icon.png" alt="Interior Design" />
+            <img src={`${process.env.PUBLIC_URL}/images/interior-icon.png`} alt="Interior Design" />
             <h3>Interior Design</h3>
             <p>Stylish interiors crafted for comfort and beauty.</p>
           </div>
           <div className="card">
-            <img src="/images/modular-icon.png" alt="Modular Solutions" />
+            <img src={`${process.env.PUBLIC_URL}/images/modular-icon.png`} alt="Modular Solutions" />
             <h3>Modular Solutions</h3>
             <p>Space-saving modular kitchens, wardrobes and more.</p>
           </div>
           <div className="card">
-            <img src="/images/turnkey-icon.png" alt="Project Execution" />
+            <img src={`${process.env.PUBLIC_URL}/images/turnkey-icon.png`} alt="Project Execution" />
             <h3>Turnkey Projects</h3>
             <p>From concept to completion—everything managed.</p>
           </div>
@@ -47,7 +52,7 @@ function Home() {
             <p>We transform spaces with smart, aesthetic interiors that reflect your lifestyle</p>
             <Link to="/about" className="btn-light">Learn More</Link>
           </div>
-          <img src="/images/about.jpg" alt="About Irra Spaces" />
+          <img src={`${process.env.PUBLIC_URL}/images/about.jpg`} alt="About Irra Spaces" />
         </div>
       </section>
 
@@ -55,7 +60,11 @@ function Home() {
       <section className="marquee-section">
         <div className="marquee-track">
           {["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8"].map((img, index) => (
-            <img key={index} src={`/images/${img}.jpg`} alt={`Project ${index + 1}`} />
+            <img
+              key={index}
+              src={`${process.env.PUBLIC_URL}/images/${img}.jpg`}
+              alt={`Project ${index + 1}`}
+            />
           ))}
         </div>
         <div>
@@ -85,4 +94,3 @@ function Home() {
 }
 
 export default Home;
-

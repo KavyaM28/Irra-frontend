@@ -4,19 +4,24 @@ import '../App.css';
 
 const Process = () => {
   useScriptBehavior();
-  
+
   return (
     <>
-
       {/* Hero Section */}
       <section className="marquee-section">
         <div className="marquee-track">
           {[
             "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg",
             "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg"
-          ].flatMap((img) => [img, img]).map((img, i) => (
-            <img key={i} src={`/images/${img}`} alt={`Slide ${i + 1}`} />
-          ))}
+          ]
+            .flatMap((img) => [img, img])
+            .map((img, i) => (
+              <img
+                key={i}
+                src={`${process.env.PUBLIC_URL}/images/${img}`} // ✅ Correct path for GitHub Pages
+                alt={`Slide ${i + 1}`}
+              />
+            ))}
         </div>
         <div className="hero-text">
           <h1>Our Design Process</h1>

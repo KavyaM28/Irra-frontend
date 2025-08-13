@@ -3,10 +3,11 @@ import { useEffect } from 'react';
 
 export default function useScriptBehavior() {
   useEffect(() => {
+    let navLinkHandlers = [];
+
     // --- Navbar toggle ---
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
-    let navLinkHandlers = [];
 
     if (toggle && navLinks) {
       const handleToggleClick = () => {
@@ -28,31 +29,58 @@ export default function useScriptBehavior() {
         navLinkHandlers.push({ link, linkHandler });
       });
 
-      // Cleanup toggle + link click
-      return () => {
+      // Cleanup for navbar
+      const cleanupNavbar = () => {
         toggle.removeEventListener('click', handleToggleClick);
         navLinkHandlers.forEach(({ link, linkHandler }) =>
           link.removeEventListener('click', linkHandler)
         );
       };
+
+      window.addEventListener('beforeunload', cleanupNavbar);
     }
 
-    // --- Form validation ---
+    // --- Form validation + submit ---
     const form = document.querySelector('form');
+
     const handleFormSubmit = (e) => {
-      const name = form.querySelector("input[name='Name']");
-      const email = form.querySelector("input[name='Email']");
-      const message = form.querySelector('textarea');
+      e.preventDefault(); // stop page reload
+
+      const nameInput = form.querySelector("input[name='name']");
+      const emailInput = form.querySelector("input[name='email']");
+      const messageInput = form.querySelector("textarea[name='message']");
+
+      const name = nameInput?.value.trim();
+      const email = emailInput?.value.trim();
+      const message = messageInput?.value.trim();
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+      if (!name || !email || !message) {
         alert('Please fill in all fields.');
-        e.preventDefault();
-      } else if (!emailPattern.test(email.value.trim())) {
-        alert('Please enter a valid email address.');
-        e.preventDefault();
+        return;
       }
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Send to backend
+      fetch("https://irraspaces-backend.onrender.com/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }), // lowercase keys
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.message);
+          alert("Message sent successfully!");
+          form.reset();
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+          alert("Something went wrong. Please try again.");
+        });
     };
 
     if (form) {
@@ -83,6 +111,9 @@ export default function useScriptBehavior() {
       if (form) {
         form.removeEventListener('submit', handleFormSubmit);
       }
+      navLinkHandlers.forEach(({ link, linkHandler }) =>
+        link.removeEventListener('click', linkHandler)
+      );
     };
   }, []);
 }

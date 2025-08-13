@@ -5,7 +5,7 @@ import '../App.css';
 const Contact = () => {
   useScriptBehavior();
 
-  const [form, setForm] = useState({ Name: '', Email: '', Message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
@@ -33,26 +33,26 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.Name || !form.Email || !form.Message) {
+    if (!form.name || !form.email || !form.message) {
       alert('Please fill in all fields.');
       return;
     }
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(form.Email)) {
+    if (!emailPattern.test(form.email)) {
       alert('Please enter a valid email address.');
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:5000/contact", {
+      const res = await fetch("https://irraspaces-backend.onrender.com/contact", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
       if (res.ok) {
-        setForm({ Name: '', Email: '', Message: '' });
+        setForm({ name: '', email: '', message: '' });
         setShowSuccess(true);
-        setTimeout(() => setShowSuccess(false), 3000); // hide after 3 sec
+        setTimeout(() => setShowSuccess(false), 3000);
       } else {
         alert('Something went wrong. Please try again.');
       }
@@ -77,9 +77,8 @@ const Contact = () => {
         <div className="contact-form">
           <h2>Send Us a Message</h2>
 
-          {/* Centered Success Popup */}
           {showSuccess && (
-            <div  id = "popup-success" className="popup-success show">
+            <div id="popup-success" className="popup-success show">
               Thank you! Your message has been sent.
             </div>
           )}
@@ -87,25 +86,25 @@ const Contact = () => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="Name"
+              name="name"
               placeholder="Your Name"
-              value={form.Name}
+              value={form.name}
               onChange={handleChange}
               required
             />
             <input
               type="email"
-              name="Email"
+              name="email"
               placeholder="Your Email"
-              value={form.Email}
+              value={form.email}
               onChange={handleChange}
               required
             />
             <textarea
-              name="Message"
+              name="message"
               placeholder="Your Message"
               rows="6"
-              value={form.Message}
+              value={form.message}
               onChange={handleChange}
               required
             ></textarea>
@@ -127,7 +126,7 @@ const Contact = () => {
           ></iframe>
           <p><strong>Address:</strong> Metroheight, Snehapuri Colony, Kothapet, Hyderabad, Telangana-500035, India</p>
           <p><strong>Email:</strong> <a href="mailto:hello@irraspaces.com">hello@irraspaces.com</a></p>
-          <p><strong>Phone:</strong> <a href="tel:+918050295130">+91 8050295130</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+918050295130">+91 8050295130 , +91 95390 00907</a></p>
         </div>
       </section>
     </>
