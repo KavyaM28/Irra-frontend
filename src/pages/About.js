@@ -36,15 +36,20 @@ function About() {
         </div>
         <br /><br />
         <div className="marquee-track">
-          {["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg"].flatMap((img) =>
-            [1, 2].map((i) => (
-              <img
-                key={`${img}-${i}`}
-                src={`${process.env.PUBLIC_URL}/images/${img}`}
-                alt={img.split('.')[0]}
-              />
-            ))
-          )}
+          {['image1', 'image2', 'image3', 'image4', 'image5', 'image6'].map((img, i) => (
+            <img
+              key={i}
+              src={`${process.env.PUBLIC_URL}/images/${img}.jpg`}
+              alt={`Slide ${i + 1}`}
+            />
+          ))}
+          {['image1', 'image2', 'image3', 'image4', 'image5', 'image6'].map((img, i) => (
+            <img
+              key={i + 100}
+              src={`${process.env.PUBLIC_URL}/images/${img}.jpg`}
+              alt={`Slide ${i + 9}`}
+            />
+          ))}
         </div>
       </section>
 

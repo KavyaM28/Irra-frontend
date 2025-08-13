@@ -20,16 +20,20 @@ const Projects = () => {
         <br /><br />
 
         <div className="marquee-track">
-          {['image1.jpg','image2.jpg','image3.jpg','image4.jpg','image5.jpg','image6.jpg']
-            .flatMap((img, i) => (
-              [1, 2].map((loop) => (
-                <img
-                  key={`${img}-${loop}-${i}`}
-                  src={`${process.env.PUBLIC_URL}/images/${img}`}
-                  alt={`Slide ${i + 1}`}
-                />
-              ))
-            ))}
+          {['image1', 'image2', 'image3', 'image4', 'image5', 'image6'].map((img, i) => (
+            <img
+              key={i}
+              src={`${process.env.PUBLIC_URL}/images/${img}.jpg`}
+              alt={`Slide ${i + 1}`}
+            />
+          ))}
+          {['image1', 'image2', 'image3', 'image4', 'image5', 'image6'].map((img, i) => (
+            <img
+              key={i + 100}
+              src={`${process.env.PUBLIC_URL}/images/${img}.jpg`}
+              alt={`Slide ${i + 9}`}
+            />
+          ))}
         </div>
       </section>
       <br />

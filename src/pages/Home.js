@@ -59,11 +59,18 @@ function Home() {
       {/* Marquee Section */}
       <section className="marquee-section">
         <div className="marquee-track">
-          {["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8"].map((img, index) => (
+          {['img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8'].map((img, i) => (
             <img
-              key={index}
+              key={i}
               src={`${process.env.PUBLIC_URL}/images/${img}.jpg`}
-              alt={`Project ${index + 1}`}
+              alt={`Slide ${i + 1}`}
+            />
+          ))}
+          {['img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8'].map((img, i) => (
+            <img
+              key={i + 100}
+              src={`${process.env.PUBLIC_URL}/images/${img}.jpg`}
+              alt={`Slide ${i + 9}`}
             />
           ))}
         </div>
