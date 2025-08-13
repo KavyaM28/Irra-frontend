@@ -126,7 +126,10 @@ const Contact = () => {
           ></iframe>
           <p><strong>Address:</strong> Metroheight, Snehapuri Colony, Kothapet, Hyderabad, Telangana-500035, India</p>
           <p><strong>Email:</strong> <a href="mailto:hello@irraspaces.com">hello@irraspaces.com</a></p>
-          <p><strong>Phone:</strong> <a href="tel:+918050295130">+91 8050295130 , +91 95390 00907</a></p>
+          <p><strong>Phone:</strong> 
+            <a href="tel:+918050295130">+91 8050295130</a> &nbsp;|&nbsp;
+            <a href="tel:+919539000907">+91 9539000907</a>
+          </p>
         </div>
       </section>
     </>
