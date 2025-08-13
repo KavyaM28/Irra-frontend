@@ -1,5 +1,4 @@
 {
-  "homepage": "https://KavyaM28.github.io/Irraspaces",
   "name": "irraspaces",
   "version": "0.1.0",
   "private": true,
@@ -15,6 +14,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://github.com/KavyaM28/irraspaces.git",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
