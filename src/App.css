@@ -1073,4 +1073,45 @@ footer {
   transform: translate(-50%, -50%) scale(1);
 }
 
+.contact-map p strong {
+  margin-right: 5px;
+}
+
+.contact-map p a {
+  white-space: nowrap; /* prevents phone numbers from breaking into two lines */
+}
+
+/* Stop horizontal scrolling on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Keep all elements within screen width */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure images & videos fit */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  section, .container, .content, .row {
+    width: 100% !important;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Stack flex or grid layouts */
+  .flex, .row, .grid {
+    flex-direction: column !important;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 
