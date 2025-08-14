@@ -1109,10 +1109,12 @@ section, .contact, .services, .hero {
 }
 
 /* Fix flex elements not wrapping */
-.marquee-track,
 .services-grid,
 .about-content {
   flex-wrap: wrap;
+}
+.marquee-track {
+  flex-wrap: nowrap; /* ✅ important for scrolling */
 }
 
 /* Reduce padding/margins on small screens */
