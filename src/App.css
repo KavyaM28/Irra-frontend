@@ -1081,37 +1081,44 @@ footer {
   white-space: nowrap; /* prevents phone numbers from breaking into two lines */
 }
 
-/* Stop horizontal scrolling on mobile */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section, div, .container {
+  max-width: 100vw; /* Never exceed viewport width */
+}
+
+/* Prevent horizontal scroll on mobile */
 html, body {
   overflow-x: hidden;
   max-width: 100%;
 }
 
-/* Keep all elements within screen width */
-* {
+/* Ensure all sections adapt to mobile width */
+section, .contact, .services, .hero {
+  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
 }
 
-/* Ensure images & videos fit */
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* Fix flex elements not wrapping */
+.marquee-track,
+.services-grid,
+.about-content {
+  flex-wrap: wrap;
 }
 
-/* Mobile adjustments */
+/* Reduce padding/margins on small screens */
 @media (max-width: 768px) {
-  section, .container, .content, .row {
-    width: 100% !important;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  /* Stack flex or grid layouts */
-  .flex, .row, .grid {
-    flex-direction: column !important;
-    display: flex;
-    flex-wrap: wrap;
+  .contact, .services, .hero, section {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
-
