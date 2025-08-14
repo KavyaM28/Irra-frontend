@@ -1081,43 +1081,43 @@ footer {
   white-space: nowrap; /* prevents phone numbers from breaking into two lines */
 }
 
+/* Reset & base */
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevent horizontal scroll */
+  max-width: 100%;
 }
 
 * {
   box-sizing: border-box;
 }
 
-section, div, .container {
-  max-width: 100vw; /* Never exceed viewport width */
+/* Limit width for general layout, but NOT marquee-track */
+section, .container {
+  max-width: 100vw; /* Prevent layouts from exceeding viewport width */
 }
 
-/* Prevent horizontal scroll on mobile */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-/* Ensure all sections adapt to mobile width */
+/* Full-width sections */
 section, .contact, .services, .hero {
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Fix flex elements not wrapping */
-.services-grid,
-.about-content {
-  flex-wrap: wrap;
-}
+/* ===== Marquee Exception ===== */
 .marquee-track {
-  flex-wrap: nowrap; /* ✅ important for scrolling */
+  display: flex;
+  flex-wrap: nowrap;              /* Keep all items in a single row */
+  width: max-content;              /* Allow it to expand as needed */
+  max-width: none;                 /* Remove viewport width limit */
 }
 
-/* Reduce padding/margins on small screens */
+.marquee-track > * {
+  flex: 0 0 auto;                  /* Prevent shrinking */
+}
+
+/* ===== Mobile adjustments ===== */
 @media (max-width: 768px) {
   .contact, .services, .hero, section {
     padding-left: 10px;
