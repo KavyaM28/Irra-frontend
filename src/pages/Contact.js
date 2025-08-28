@@ -62,6 +62,7 @@ const Contact = () => {
         alert('Something went wrong. Please try again.');
       }
     } catch (err) {
+      console.error("❌ Frontend Error:", err);
       alert('Error connecting to server.');
     }
   };

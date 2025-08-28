@@ -16,7 +16,6 @@
   },
 
   "homepage": "https://github.com/KavyaM28/Irra-frontend",
-
   
   "scripts": {
     "start": "react-scripts start",
