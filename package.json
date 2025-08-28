@@ -14,7 +14,11 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/KavyaM28/Irra-frontend",
+=======
+  "homepage": "https://irraspaces.com",
+>>>>>>> 4a4058baf86c6f28a52783494abc122c2b81f275
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
