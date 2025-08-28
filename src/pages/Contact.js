@@ -5,7 +5,7 @@ import '../App.css';
 const Contact = () => {
   useScriptBehavior();
 
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.name || !form.email || !form.message) {
+    if (!form.name || !form.email || !form.phone || !form.message) {
       alert('Please fill in all fields.');
       return;
     }
@@ -42,15 +42,20 @@ const Contact = () => {
       alert('Please enter a valid email address.');
       return;
     }
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(form.phone)) {
+      alert('Please enter a valid 10-digit phone number.');
+      return;
+    }
 
     try {
-      const res = await fetch("https://irraspaces-backend.onrender.com/contact", {
+      const res = await fetch("https://irra-backend-pvec.onrender.com/contact", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
       if (res.ok) {
-        setForm({ name: '', email: '', message: '' });
+        setForm({ name: '', email: '', phone: '', message: '' });
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 3000);
       } else {
@@ -100,6 +105,14 @@ const Contact = () => {
               onChange={handleChange}
               required
             />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone Number"
+              value={form.phone}
+              onChange={handleChange}
+              required
+            />
             <textarea
               name="message"
               placeholder="Your Message"
@@ -111,21 +124,19 @@ const Contact = () => {
             <button type="submit" className="btn">Send Message</button>
           </form>
         </div>
+      
 
         <div className="contact-map">
-          <h2>Visit Our Studio</h2>
-          <iframe
-            title="Google Maps"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7615.673117007231!2d78.54321643710139!3d17.37159594482398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb990c1ab8567b%3A0x6e718bc1364bee23!2sMetro%20Heights!5e0!3m2!1sen!2sin!4v1752332539958!5m2!1sen!2sin"
-            width="300"
-            height="350"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-          <p><strong>Address:</strong> Metroheight, Snehapuri Colony, Kothapet, Hyderabad, Telangana-500035, India</p>
-          <p><strong>Email:</strong> <a href="mailto:hello@irraspaces.com">hello@irraspaces.com</a></p>
+          <h2>Reach out anytime</h2>
+          <iframe src="https://googlemap.com" 
+            width="600" 
+            height="400"
+            title="Irraspaces location map">
+          </iframe> 
+          
+          <p><strong>Email:</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@irraspaces.com" target="_blank" rel="noreferrer">
+            hello@irraspaces.com</a>
+          </p>
           <p><strong>Phone:</strong> 
             <a href="tel:+918050295130">+91 8050295130</a> &nbsp;|&nbsp;
             <a href="tel:+919539000907">+91 9539000907</a>

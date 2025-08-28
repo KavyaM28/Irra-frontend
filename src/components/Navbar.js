@@ -38,9 +38,9 @@ const Navbar = () => {
           </h4>
         </div>
 
-        {/* Toggle Button (Mobile Only) */}
+        {/* Toggle Button */}
         <div
-          className="nav-toggle"
+          className={`nav-toggle ${isMenuOpen ? "active" : ""}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span></span>
@@ -50,39 +50,23 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <nav className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-          <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className={location.pathname === "/about" ? "active" : ""}
-          >
-            About
-          </Link>
-          <Link
-            to="/services"
-            className={location.pathname === "/services" ? "active" : ""}
-          >
-            Services
-          </Link>
-          <Link
-            to="/projects"
-            className={location.pathname === "/projects" ? "active" : ""}
-          >
-            Projects
-          </Link>
-          <Link
-            to="/process"
-            className={location.pathname === "/process" ? "active" : ""}
-          >
-            Process
-          </Link>
-          <Link
-            to="/contact"
-            className={location.pathname === "/contact" ? "active" : ""}
-          >
-            Contact
-          </Link>
+          {["/", "/about", "/services", "/projects", "/process", "/contact"].map(
+            (path, index) => (
+              <Link
+                key={path}
+                to={path}
+                className={`nav-item ${
+                  location.pathname === path ? "active" : ""
+                }`}
+                style={{ transitionDelay: isMenuOpen ? `${index * 0.1}s` : "0s" }}
+              >
+                {path === "/"
+                  ? "Home"
+                  : path.replace("/", "").charAt(0).toUpperCase() +
+                    path.slice(2)}
+              </Link>
+            )
+          )}
         </nav>
       </div>
     </header>

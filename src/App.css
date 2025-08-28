@@ -379,8 +379,9 @@ footer {
 
 .contact-map iframe {
   width: 100%;
+  height: 350px;
+  border: none;
   border-radius: 10px;
-  margin-bottom: 1em;
 }
 
 .contact-map p {
@@ -1122,5 +1123,114 @@ section, .contact, .services, .hero {
   .contact, .services, .hero, section {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .hero {
+    height: 60vh; /* reduce height for mobile */
+    background-size: cover;
+    background-position: center;
+    padding: 1em;
+  }
+
+  .hero-content {
+    padding: 1em;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+/* Navbar Layout */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.logo {
+  font-family: "Poppins", Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(1, 1, 116);
+}
+.tagline {
+  font-size: 1rem;
+  color: rgb(44, 1, 123);
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+.nav-links a.active {
+  border-bottom: 2px solid #000;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #111;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background: #fff;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .nav-links.active {
+    transform: translateX(0);
+  }
+  .nav-toggle {
+    display: flex;
   }
 }

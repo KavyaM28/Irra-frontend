@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import useScriptBehavior from './hooks/useScriptBehavior';
 import Home from './pages/Home';
@@ -12,9 +12,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-
 function App() {
   useScriptBehavior();
+
   useEffect(() => {
     fetch('http://localhost:5000/')
       .then(res => res.text())
@@ -22,8 +22,8 @@ function App() {
   }, []);
 
   return (
-     <BrowserRouter basename="/irraspaces">
-     <ScrollToTop />
+    <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -34,7 +34,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </Router>
   );
 }
+
 export default App;
