@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/KavyaM28/Irra-frontend/static/css/main.17f452c8.css",
+    "main.js": "/KavyaM28/Irra-frontend/static/js/main.f938ec0b.js",
+    "index.html": "/KavyaM28/Irra-frontend/index.html",
+    "main.17f452c8.css.map": "/KavyaM28/Irra-frontend/static/css/main.17f452c8.css.map",
+    "main.f938ec0b.js.map": "/KavyaM28/Irra-frontend/static/js/main.f938ec0b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17f452c8.css",
+    "static/js/main.f938ec0b.js"
+  ]
+}
