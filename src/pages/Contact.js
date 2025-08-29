@@ -54,7 +54,7 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('https://irra-backend-pvec.onrender.com/contact', {
+      const res = await fetch("https://irra-backend-pvec.onrender.com/contact", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
