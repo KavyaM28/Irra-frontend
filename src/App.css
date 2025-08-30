@@ -1235,9 +1235,8 @@ section, .contact, .services, .hero {
   }
 }
 .hero-description {
-  font-size: 1.1rem;
+font-size: 1.1rem;
   line-height: 1.8;
-  color: #444;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
+  color: #555;
+  margin-bottom: 1.5em;
 }
