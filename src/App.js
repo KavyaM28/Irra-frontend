@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import useScriptBehavior from './hooks/useScriptBehavior';
@@ -15,11 +15,27 @@ import ScrollToTop from './components/ScrollToTop';
 function App() {
   useScriptBehavior();
 
-  useEffect(() => {
-    fetch('http://localhost:5000/')
-      .then(res => res.text())
-      .then(data => console.log(data));
-  }, []);
+  // Function to send message to backend
+  const sendMessage = async (message) => {
+    const API_URL = process.env.REACT_APP_API_URL;
+
+    if (!API_URL) {
+      console.error("API URL is not defined. Check your .env or .env.production file.");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_URL}/send-message`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+      const data = await res.json();
+      console.log("Message sent:", data);
+    } catch (err) {
+      console.error("Error sending message:", err);
+    }
+  };
 
   return (
     <Router>
@@ -31,7 +47,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/process" element={<Process />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* Pass sendMessage function to Contact page */}
+        <Route path="/contact" element={<Contact sendMessage={sendMessage} />} />
       </Routes>
       <Footer />
     </Router>
