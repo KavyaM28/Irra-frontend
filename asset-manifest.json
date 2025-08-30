@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Irra-frontend/static/css/main.17f452c8.css",
-    "main.js": "/Irra-frontend/static/js/main.220b9589.js",
+    "main.js": "/Irra-frontend/static/js/main.97875170.js",
     "index.html": "/Irra-frontend/index.html",
     "main.17f452c8.css.map": "/Irra-frontend/static/css/main.17f452c8.css.map",
-    "main.220b9589.js.map": "/Irra-frontend/static/js/main.220b9589.js.map"
+    "main.97875170.js.map": "/Irra-frontend/static/js/main.97875170.js.map"
   },
   "entrypoints": [
     "static/css/main.17f452c8.css",
-    "static/js/main.220b9589.js"
+    "static/js/main.97875170.js"
   ]
 }
