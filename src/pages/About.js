@@ -34,13 +34,13 @@ function About() {
         <div className="hero-text">
           <h1>About IRRA SPACES</h1>
         </div>
-        <br /><br /> 
-        <p style={{ fontSize: 'large', marginTop: '1rem' }}>
+        <br /> 
+        <p className="hero-description">
             Welcome to <strong>Irraspaces</strong>, where design meets purpose. Based in the heart of Hyderabad,
             we are not just an interior design studio — we are space storytellers, curators of lifestyle, and
             champions of thoughtful aesthetics.
           </p>
-          <p style={{ fontSize: 'large' }}>
+          <p className="hero-description">
             At Irraspaces, we believe that every square foot tells a story. Whether it's a home that breathes warmth
             or a workspace that fuels innovation, our design philosophy blends functionality, emotion, and timeless appeal.
             What sets us apart is not just how we design.
