@@ -1,3 +1,4 @@
+// App.js
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
@@ -15,25 +16,31 @@ import ScrollToTop from './components/ScrollToTop';
 function App() {
   useScriptBehavior();
 
-  // Function to send message to backend
-  const sendMessage = async (message) => {
+  // ✅ Function to send contact form data to backend
+  const sendMessage = async (formData) => {
     const API_URL = process.env.REACT_APP_API_URL;
 
     if (!API_URL) {
       console.error("API URL is not defined. Check your .env or .env.production file.");
-      return;
+      return { success: false, error: "API URL not defined" };
     }
 
     try {
-      const res = await fetch(`${API_URL}/send-message`, {
+      const res = await fetch(`${API_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message })
+        body: JSON.stringify(formData),
       });
+
       const data = await res.json();
-      console.log("Message sent:", data);
+      if (res.ok) {
+        return { success: true, message: data.message };
+      } else {
+        return { success: false, error: data.error || "Something went wrong" };
+      }
     } catch (err) {
-      console.error("Error sending message:", err);
+      console.error("❌ Error sending message:", err);
+      return { success: false, error: "Error connecting to server" };
     }
   };
 
@@ -47,7 +54,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/process" element={<Process />} />
-        {/* Pass sendMessage function to Contact page */}
+        {/* ✅ Pass sendMessage function to Contact */}
         <Route path="/contact" element={<Contact sendMessage={sendMessage} />} />
       </Routes>
       <Footer />

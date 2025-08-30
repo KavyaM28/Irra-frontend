@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useScriptBehavior from '../hooks/useScriptBehavior';
 import '../App.css';
 
-const Contact = () => {
+const Contact = ({ sendMessage }) => {
   useScriptBehavior();
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -54,20 +54,14 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const result = await sendMessage(form); // ✅ use App.js sendMessage
 
-      const data = await res.json();
-
-      if (res.ok) {
+      if (result.success) {
         setForm({ name: '', email: '', phone: '', message: '' });
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 3000);
       } else {
-        alert(data.error || 'Something went wrong. Please try again.');
+        alert(result.error || 'Something went wrong. Please try again.');
       }
     } catch (err) {
       console.error('❌ Frontend Error:', err);
