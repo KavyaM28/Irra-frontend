@@ -1235,12 +1235,13 @@ section, .contact, .services, .hero {
   }
 }
 .about-heropara {
-font-size: 1.2rem;
+  font-size: 1.2rem;
   line-height: 1.8;
   margin: 0 auto 20px;
   color: #444;
 }
-* 📱 Mobile screens (max-width 768px) */
+
+/* 📱 Mobile screens (max-width 768px) */
 @media (max-width: 768px) {
   .about-heropara {
     font-size: 1rem;   /* smaller for mobile */
@@ -1257,3 +1258,4 @@ font-size: 1.2rem;
     line-height: 1.5;
   }
 }
+
