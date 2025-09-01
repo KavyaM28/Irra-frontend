@@ -1235,9 +1235,8 @@ section, .contact, .services, .hero {
   }
 }
 .about-heropara {
-font-size: 1.1rem;
+font-size: 1.2rem;
   line-height: 1.8;
-  max-width: 800px;
   margin: 0 auto 20px;
   color: #444;
 }
