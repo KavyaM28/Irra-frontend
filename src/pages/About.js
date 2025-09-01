@@ -35,16 +35,17 @@ function About() {
           <h1>About IRRA SPACES</h1>
         </div>
         <br /> 
-        <p className="hero-description">
-            Welcome to <strong>Irraspaces</strong>, where design meets purpose. Based in the heart of Hyderabad,
-            we are not just an interior design studio — we are space storytellers, curators of lifestyle, and
-            champions of thoughtful aesthetics.
-          </p>
-          <p className="hero-description">
-            At Irraspaces, we believe that every square foot tells a story. Whether it's a home that breathes warmth
-            or a workspace that fuels innovation, our design philosophy blends functionality, emotion, and timeless appeal.
-            What sets us apart is not just how we design.
-          </p>
+        <p className="about-heropara">
+    Welcome to <strong>Irraspaces</strong>, where design meets purpose. Based in the
+    heart of Hyderabad, we are not just an interior design studio — we are space
+    storytellers, curators of lifestyle, and champions of thoughtful aesthetics.
+  </p>
+  <p className="about-heropara">
+    At Irraspaces, we believe that every square foot tells a story. Whether it's
+    a home that breathes warmth or a workspace that fuels innovation, our design
+    philosophy blends functionality, emotion, and timeless appeal.
+  </p>
+  <p className="about-heropara">What sets us apart is not just how we design.</p>
           <br />
         <div className="marquee-track">
           {['image1', 'image2', 'image3', 'image4', 'image5', 'image6'].map((img, i) => (
