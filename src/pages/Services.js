@@ -72,7 +72,7 @@ const Services = () => {
           <h1>Our Services</h1>
         </div>
       </section>
-      <br /><br /><br />
+      <br /><br />
 
       {/* Services */}
       <section className="service-detail">
