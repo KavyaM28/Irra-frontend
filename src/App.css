@@ -1242,11 +1242,13 @@ section, .contact, .services, .hero {
 }
 
 /* 📱 Mobile screens (max-width 768px) */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .about-heropara {
-    font-size: 15px;
+    font-size: 0.95rem;
     line-height: 1.4;
-    text-align: justify;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
   }
 }
 
