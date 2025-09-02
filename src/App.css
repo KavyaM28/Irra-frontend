@@ -1244,10 +1244,9 @@ section, .contact, .services, .hero {
 /* 📱 Mobile screens (max-width 768px) */
 @media (max-width: 500px) {
   .about-heropara {
-    font-size: 0.95rem;
+    font-size: 15px;
     line-height: 1.4;
-    padding: 0 15px;   /* add side padding for readability */
-    text-align: center;
+    text-align: justify;
   }
 }
 
