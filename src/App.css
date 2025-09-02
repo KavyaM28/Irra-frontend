@@ -1246,9 +1246,10 @@ section, .contact, .services, .hero {
   .about-heropara {
     font-size: 0.95rem;
     line-height: 1.4;
-    max-width: 900px;
     margin: auto;
     text-align: center;
+    padding: 0 1em;
+    color: #444;
   }
 }
 
