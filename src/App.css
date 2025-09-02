@@ -968,7 +968,7 @@ footer {
 /* Mobile adjustments */
 @media (max-width: 600px) {
   .about-different {
-    padding: 3em 1em;
+    padding: 1.5em 1em;
   }
 
   .about-different summary {
