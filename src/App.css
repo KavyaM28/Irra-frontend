@@ -227,8 +227,8 @@ body, h1, h2, p {
 }
 
 /* About Section */
-.about-content {
-  padding: 4em 2em;
+.about-cont {
+  padding: 4em 2em 1.5em;
   background-color: #f9f9f9;
 }
 
@@ -248,7 +248,7 @@ body, h1, h2, p {
   font-size: 1.1rem;
   line-height: 1.8;
   color: #555;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 /* Footer */
@@ -1234,22 +1234,54 @@ section, .contact, .services, .hero {
     display: flex;
   }
 }
-.about-heropara {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin: 0 auto 20px;
-  color: #444;
+
+.about-section {
+  max-width: 900px;         /* keeps content in center, not stretched */
+  margin: 0 auto;           /* center horizontally */
+  padding: 60px 20px 1.7em;       /* space around content */
+  text-align: center;       /* center text */
+  background-color: #ffffff; /* clean white background */
 }
 
-/* 📱 Mobile screens (max-width 768px) */
+.about-section .hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;          /* dark gray/black */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.about-section .about-heropara {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.about-section .about-heropara strong {
+  color: #2e1065;          /* accent purple for IRRASPACES */
+}
+
+.about-section .tagline {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111;
+  margin-top: 30px;
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
-  .about-heropara {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin: auto;
-    text-align: center;
-    padding: 0 1em;
-    color: #444;
+  .about-section {
+    padding: 40px 15px;
+  }
+
+  .about-section .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .about-section .about-heropara {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 

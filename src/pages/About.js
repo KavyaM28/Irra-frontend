@@ -30,23 +30,28 @@ function About() {
   return (
     <>
       {/* Hero Section */}
-      <section className="marquee-section">
+      <section className="about-section">
         <div className="hero-text">
           <h1>About IRRA SPACES</h1>
         </div>
-        <br /> 
         <p className="about-heropara">
-    Welcome to <strong>IRRASPACES</strong>, where design meets purpose. Based in the
-    heart of Hyderabad,<br></br> we are not just an interior design studio — we are space
-    storytellers, curators of lifestyle, and champions of thoughtful aesthetics.
-  </p>
-  <p className="about-heropara">
-    At Irraspaces, we believe that every square foot tells a story. Whether it's
-    a home that breathes <br></br> warmth or a workspace that fuels innovation, our design
-    philosophy blends functionality, emotion, and timeless appeal.
-  </p>
-  <p className="about-heropara">What sets us apart is not just how we design.</p>
-          <br />
+          Welcome to <strong>IRRASPACES</strong>, where design meets purpose. Based in the
+          heart of Hyderabad, we are not just an interior design studio — we are space
+          storytellers, curators of lifestyle, and champions of thoughtful aesthetics.
+        </p>
+
+        <p className="about-heropara">
+          At Irraspaces, we believe that every square foot tells a story. Whether it's
+          a home that breathes warmth or a workspace that fuels innovation, our design
+          philosophy blends functionality, emotion, and timeless appeal.
+        </p>
+
+        <p className="about-heropara tagline">
+          What sets us apart is not just how we design.
+        </p>
+      </section>
+
+      <section className="marquee-section">
         <div className="marquee-track">
           {['image1', 'image2', 'image3', 'image4', 'image5', 'image6'].map((img, i) => (
             <img
@@ -66,7 +71,7 @@ function About() {
       </section>
 
       {/* About Content */}
-      <section className="about-content">
+      <section className="about-cont">
         <div className="about-wrapper">
           <h2 className="subheading">Our Studio Ethos</h2>
           <p style={{ fontSize: 'larger' }}>
