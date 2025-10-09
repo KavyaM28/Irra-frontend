@@ -68,23 +68,7 @@ const Projects = () => {
       </section>
       <br />
 
-      {/* CTA */}
-      <section>
-        <div style={{ textAlign: 'center' }}>
-          <h2>See the Spaces We’ve Transformed</h2>
-          <br />
-          <Link
-            to="https://pdflink.to/recentinteriors/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-light"
-            style={{ fontSize: '20px' }}
-          >
-            Step Into Our World
-          </Link>
-        </div>
-      </section>
-
+     
       {/* Optional Reveal Section */}
       <section className="services reveal">
         {/* Add your animated services if needed */}
